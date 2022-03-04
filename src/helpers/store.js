@@ -4,7 +4,7 @@ const useStore = create((set) => {
   return {
     router: {},
     dom: null,
-    openTwitterModal: false,
+    openTwitterModal: true,
     filterConflicts: true,
     filterBombing: true,
     filterTroops: true,

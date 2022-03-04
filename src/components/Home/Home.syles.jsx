@@ -131,6 +131,10 @@ export const MinInfo = styled(TextSmall)`
 export const FiltersContainer = styled.div`
   display: flex;
   align-items: center;
+  & > p {
+    margin-left: 10.5px;
+    margin-top: 3px;
+  }
 `
 
 export const TwitterContainer = styled.div`

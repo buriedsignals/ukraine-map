@@ -42,7 +42,6 @@ export default function MapBox() {
       container: mapRef.current,
       style: 'mapbox://styles/buriedsignals/cl0bjiqo6001q15t9y6tv7xx0',
     })
-    console.log(map.current)
     map.current.dragRotate.disable()
     map.current.touchZoomRotate.disableRotation()
     map.current.addControl(
@@ -58,7 +57,6 @@ export default function MapBox() {
         return
       }
       const feature = features[0]
-      console.log(features)
       let icon = ''
       switch (feature.properties.icon) {
         case 'bombing':

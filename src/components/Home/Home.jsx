@@ -20,14 +20,14 @@ export default function Home() {
   )
   let lastUpdate = ''
   if (days > 0) {
-    lastUpdate = days + 'day'
+    lastUpdate = days + ' day'
     lastUpdate += days > 1 ? 's' : ''
   } else {
     if (hours > 0) {
-      lastUpdate = hours + 'hour'
+      lastUpdate = hours + ' hour'
       lastUpdate += hours > 1 ? 's' : ''
     } else {
-      lastUpdate = minutes + 'min'
+      lastUpdate = minutes + ' min'
       lastUpdate += minutes > 1 ? 's' : ''
     }
   }
@@ -55,6 +55,7 @@ export default function Home() {
             <Style.FiltersContainer>
               <Style.TextMedium>Filters :</Style.TextMedium>
               <FiltersList />
+              <Style.MinInfo>Updated 24 hours ago</Style.MinInfo>
             </Style.FiltersContainer>
           </Style.BannerHeaderMap>
           <TwitterContainer />
