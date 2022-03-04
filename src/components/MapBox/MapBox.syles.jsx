@@ -34,7 +34,8 @@ export const MapContainer = styled.div`
       width: 255px;
       background: #ffffff;
       box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-      img {
+      img,
+      iframe {
         width: 255px;
         height: 156px;
       }

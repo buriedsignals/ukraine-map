@@ -7,13 +7,38 @@ import {
   colorWhite,
   colorGreyLight,
 } from '@/helpers/styles'
+import { down } from 'styled-breakpoints'
 
 export const PageContainer = styled.div`
+  position: relative;
   display: flex;
   width: 100vw;
   height: 100vh;
   background: ${colorBlack};
   overflow: hidden;
+  .mobile-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translate3D(-50%, -50%, 0);
+    p {
+      margin-top: 10.5px;
+      color: ${colorWhite};
+    }
+  }
+  ${down('md')} {
+    .mobile-logo {
+      display: flex;
+    }
+    & > * {
+      display: none;
+    }
+  }
 `
 
 export const ThreeQuartersContainer = styled.div`
@@ -49,16 +74,26 @@ export const BannerHeaderLosses = styled(BannerHeader)``
 
 export const BannerHeaderLatest = styled(BannerHeader)`
   a {
-    text-decoration: underline;
+    padding: 5px 20px;
+    color: ${colorBlack};
+    background: ${colorGreyLight};
+    border-radius: 20px;
   }
 `
 
 export const TitlePage = styled.h1`
+  display: flex;
+  align-items: center;
   color: ${colorMain};
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.02em;
+  svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 7.5px;
+  }
 `
 
 export const SubtitlePage = styled.h2`

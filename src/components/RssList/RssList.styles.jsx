@@ -11,6 +11,9 @@ export const LatestList = styled.ul`
     div {
       display: flex;
       justify-content: space-between;
+      p:last-child {
+        margin-left: 5px;
+      }
     }
     a {
       color: ${colorMain};

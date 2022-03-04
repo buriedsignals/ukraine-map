@@ -7,6 +7,7 @@ import LinksDonation from '../LinksDonation/LinksDonation'
 import TwitterContainer from '../TwitterContainer/TwitterContainer'
 import FiltersList from '../FiltersList/FiltersList'
 import useStore from '@/helpers/store'
+import IconLogo from '../icons/IconLogo'
 
 export default function Home() {
   const updateDateJson = useStore((state) => state.updateDateJson)
@@ -32,10 +33,25 @@ export default function Home() {
   }
   return (
     <Style.PageContainer>
+      <div className='mobile-logo'>
+        <IconLogo />
+        <Style.TextMedium>
+          Please use a desktop to access the conflict monitor.
+        </Style.TextMedium>
+      </div>
       <Style.ThreeQuartersContainer>
         <Style.BannerContainer>
           <Style.BannerHeaderMap>
-            <Style.TitlePage>Ukraine Conflict Monitor</Style.TitlePage>
+            <Style.TitlePage>
+              <a
+                href='https://buriedsignals.com/'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <IconLogo />
+              </a>
+              Ukraine Conflict Monitor
+            </Style.TitlePage>
             <Style.FiltersContainer>
               <Style.TextMedium>Filters :</Style.TextMedium>
               <FiltersList />

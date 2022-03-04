@@ -3,6 +3,7 @@ import { getApolloClient } from '@/middleware/lib/apollo-client'
 import { decodeHtmlEntities, removeExtraSpaces } from '@/middleware/lib/util'
 
 import { QUERY_SITE_DATA, QUERY_SEO_DATA } from '@/middleware/data/site'
+import { MeshStandardMaterial } from 'three'
 
 /**
  * getSiteMetadata
@@ -223,6 +224,8 @@ export function constructPageMetadata(
 
 export function helmetSettingsFromMetadata(metadata = {}, options = {}) {
   const { link = [], meta = [], setTitle = true } = options
+
+  metadata.title = 'Ukraine'
 
   const sanitizedDescription = removeExtraSpaces(metadata.description)
 
