@@ -1,0 +1,29 @@
+{
+  "update_date": "03/04/2022 02:38:00",
+  "losses": {
+    "Country": [
+      "Ukraine",
+      "Russia"
+    ],
+    "Personnel": [
+      22,
+      29
+    ],
+    "Civilians": [
+      122,
+      22
+    ],
+    "Tanks": [
+      0,
+      12
+    ],
+    "Armored Vehicules": [
+      3,
+      22
+    ],
+    "Helicopters": [
+      0,
+      2
+    ]
+  }
+}

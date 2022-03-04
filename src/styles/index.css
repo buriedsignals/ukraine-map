@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #__next {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .dom {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
