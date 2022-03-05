@@ -29,6 +29,12 @@ export default function LinksDonation() {
               <TextMedium>Doctor without borders</TextMedium>
             </Style.DonationLink>
           </li>
+          <li>
+            <Style.DonationLink href='' target='_blank'>
+              <IconArrow />
+              <TextMedium>Doctor without borders</TextMedium>
+            </Style.DonationLink>
+          </li>
         </Style.DonationLinksList>
       )}
     </>
