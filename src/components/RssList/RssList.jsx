@@ -12,30 +12,44 @@ function convert(str) {
 
 export default function RssList() {
   const [datas, setDatas] = useState([])
+  const listRSS = [
+    {
+      author: 'Bellingcat',
+      feedURL: 'https://politepol.com/fd/lUvjnbBxOqED',
+    },
+    {
+      author: 'NewsNow',
+      feedURL: 'https://politepol.com/fd/CdSCNpajIT1g',
+    },
+  ]
   useEffect(() => {
-    fetch(
-      'https://api.allorigins.win/get?url=https://www.aljazeera.com/xml/rss/all.xml'
-    )
-      .then(function (res) {
-        return res.json()
-      })
-      .then(function (res) {
-        const contents = new window.DOMParser().parseFromString(
-          res.contents,
-          'text/xml'
-        )
-        const items = contents.querySelectorAll('item')
-        const contentItems = [...items].map((el) => ({
-          link: el.querySelector('link').innerHTML,
-          title: el.querySelector('title').innerHTML,
-          date: convert(el.querySelector('pubDate').innerHTML),
-          author: 'Aljazeera',
-        }))
-        setDatas(datas.concat(contentItems))
-      })
-      .catch(function (err) {
-        console.log(err, ' error')
-      })
+    listRSS.forEach((rss) => {
+      fetch(`https://api.allorigins.win/get?url=${rss.feedURL}`)
+        .then(function (res) {
+          return res.json()
+        })
+        .then(function (res) {
+          const contents = new window.DOMParser().parseFromString(
+            res.contents,
+            'text/xml'
+          )
+          const items = contents.querySelectorAll('item')
+          const contentItems = [...items].map((el) => ({
+            link: el.querySelector('link').innerHTML,
+            title: el.querySelector('title').innerHTML,
+            date: el.querySelector('pubDate').innerHTML,
+            author: rss.author,
+          }))
+          let newDatas = datas.concat(contentItems)
+          newDatas = newDatas.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          )
+          setDatas(newDatas)
+        })
+        .catch(function (err) {
+          console.log(err, ' error')
+        })
+    })
   }, [])
   return (
     <Style.LatestList>
@@ -45,7 +59,7 @@ export default function RssList() {
             <li key={index}>
               <div>
                 <TextMedium>{data.title}</TextMedium>
-                <MinInfo>{data.date}</MinInfo>
+                <MinInfo>{convert(data.date)}</MinInfo>
               </div>
               <TextSmall>
                 Source&nbsp;:&nbsp;
