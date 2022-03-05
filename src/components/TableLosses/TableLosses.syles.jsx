@@ -15,7 +15,7 @@ export const TableLosses = styled.table`
     &:nth-child(2) {
       text-align: center;
       p {
-        font-weight: 300;
+        font-weight: 400;
       }
     }
     &:last-child {

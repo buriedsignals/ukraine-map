@@ -15,7 +15,7 @@ export default function TwitterContainer() {
       <Style.BannerHeaderTwitter>
         <SubtitlePage>
           <IconTwitter />
-          Verified posts
+          Twitter Feed
         </SubtitlePage>
         <Style.ButtonMore
           className={openTwitterModal && 'isLess'}

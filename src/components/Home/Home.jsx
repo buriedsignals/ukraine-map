@@ -55,7 +55,7 @@ export default function Home() {
             <Style.FiltersContainer>
               <Style.TextMedium>Filters :</Style.TextMedium>
               <FiltersList />
-              <Style.MinInfo>Updated 24 hours ago</Style.MinInfo>
+              <Style.MinInfo>Updated 2 hours ago</Style.MinInfo>
             </Style.FiltersContainer>
           </Style.BannerHeaderMap>
           <TwitterContainer />
@@ -80,7 +80,7 @@ export default function Home() {
               target='_blank'
               rel='noreferrer'
             >
-              <Style.TextSmall>Sanctions</Style.TextSmall>
+              <Style.TextSmall>Sanctions Tracker</Style.TextSmall>
             </a>
           </Style.BannerHeaderLatest>
           <Style.PanelLatest>

@@ -18,9 +18,13 @@ export default function RssList() {
       feedURL: 'https://politepol.com/fd/lUvjnbBxOqED',
     },
     {
-      author: 'NewsNow',
+      author: 'News Now',
       feedURL: 'https://politepol.com/fd/CdSCNpajIT1g',
     },
+    // {
+    //   author: 'Al Jazeera',
+    //   feedURL: 'https://politepol.com/fd/PGnhmcIg7TzS',
+    // },
   ]
   useEffect(() => {
     listRSS.forEach((rss) => {

@@ -1,29 +1,29 @@
 {
   "update_date": "03/04/2022 02:38:00",
   "losses": {
-    "Country": [
+    "Source : Statista": [
       "Ukraine",
       "Russia"
     ],
     "Personnel": [
-      22,
-      29
+      1332,
+      9166
     ],
     "Civilians": [
-      122,
+      352,
       22
     ],
-    "Tanks": [
-      0,
-      12
+    "Tanks and armored vehicles": [
+      254,
+      251
     ],
-    "Armored Vehicules": [
-      3,
-      22
+    "Special vehicules and APVs": [
+      164,
+      1343
     ],
-    "Helicopters": [
-      0,
-      2
+    "Aircraft and drones": [
+      31,
+      73
     ]
   }
 }
