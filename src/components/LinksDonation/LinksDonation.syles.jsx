@@ -2,6 +2,7 @@ import { colorBlack, colorMain } from '@/helpers/styles'
 import styled, { css } from 'styled-components'
 
 export const ButtonDonation = styled.button`
+  height: fit-content;
   margin: 0 auto;
   padding: 10px 40px;
   color: ${colorBlack};

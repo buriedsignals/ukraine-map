@@ -172,7 +172,7 @@ export const ModalTwitter = styled.div`
 `
 
 export const Panel = styled.div`
-  padding: 40px 30px;
+  padding: 20px 30px;
   color: ${colorWhite};
   background: ${colorBlack};
 `
@@ -180,13 +180,17 @@ export const Panel = styled.div`
 export const PanelLosses = styled(Panel)``
 
 export const PanelLatest = styled(Panel)`
-  padding: 25px 30px;
+  height: calc(100vh - 65px - 290px - 65px - 127px);
+  padding: 20px 30px;
+  overflow: scroll;
 `
 
 export const PanelDonation = styled(Panel)`
   display: flex;
   justify-content: center;
-  padding: 60px;
+  align-items: center;
+  height: 127px;
+  padding: 20px 60px;
 `
 
 export const ButtonDonation = styled.button`

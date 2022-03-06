@@ -38,6 +38,8 @@ export default function MapBox() {
   useEffect(() => {
     if (map.current) map.current.resize()
     if (map.current) return
+    console.log(mapboxgl)
+    mapboxgl.clearStorage()
     map.current = new mapboxgl.Map({
       container: mapRef.current,
       style: 'mapbox://styles/buriedsignals/cl0bjiqo6001q15t9y6tv7xx0',
@@ -51,7 +53,7 @@ export default function MapBox() {
 
     map.current.on('click', (event) => {
       const features = map.current.queryRenderedFeatures(event.point, {
-        layers: ['ukraine-conflicts', 'ukraine-conflicts-polygons'],
+        layers: ['ukraine-conflicts'],
       })
       if (!features.length) {
         return

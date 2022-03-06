@@ -10,8 +10,40 @@ function convert(str) {
   return [day, mnth, year].join('/')
 }
 
+function getRSS(i, newDatas, setDatas, listRSS) {
+  fetch(`https://api.allorigins.win/get?url=${listRSS[i].feedURL}`)
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function (res) {
+      const contents = new window.DOMParser().parseFromString(
+        res.contents,
+        'text/xml'
+      )
+      const items = contents.querySelectorAll('item')
+      const contentItems = [...items].map((el) => ({
+        link: el.querySelector('link').innerHTML,
+        title: el.querySelector('title').innerHTML,
+        date: el.querySelector('pubDate').innerHTML,
+        author: listRSS[i].author,
+      }))
+      newDatas = newDatas.concat(contentItems)
+      if (i == listRSS.length - 1) {
+        newDatas = newDatas.sort((a, b) => new Date(b.date) - new Date(a.date))
+        setDatas({ list: newDatas })
+        return
+      } else {
+        i += 1
+        getRSS(i, newDatas, setDatas, listRSS)
+      }
+    })
+    .catch(function (err) {
+      console.log(err, ' error')
+    })
+}
+
 export default function RssList() {
-  const [datas, setDatas] = useState([])
+  const [datas, setDatas] = useState({ list: [] })
   const listRSS = [
     {
       author: 'Bellingcat',
@@ -21,45 +53,19 @@ export default function RssList() {
       author: 'News Now',
       feedURL: 'https://politepol.com/fd/CdSCNpajIT1g',
     },
-    // {
-    //   author: 'Al Jazeera',
-    //   feedURL: 'https://politepol.com/fd/PGnhmcIg7TzS',
-    // },
+    {
+      author: 'Al Jazeera',
+      feedURL: 'https://www.aljazeera.com/xml/rss/all.xml',
+    },
   ]
   useEffect(() => {
-    listRSS.forEach((rss) => {
-      fetch(`https://api.allorigins.win/get?url=${rss.feedURL}`)
-        .then(function (res) {
-          return res.json()
-        })
-        .then(function (res) {
-          const contents = new window.DOMParser().parseFromString(
-            res.contents,
-            'text/xml'
-          )
-          const items = contents.querySelectorAll('item')
-          const contentItems = [...items].map((el) => ({
-            link: el.querySelector('link').innerHTML,
-            title: el.querySelector('title').innerHTML,
-            date: el.querySelector('pubDate').innerHTML,
-            author: rss.author,
-          }))
-          let newDatas = datas.concat(contentItems)
-          newDatas = newDatas.sort(
-            (a, b) => new Date(b.date) - new Date(a.date)
-          )
-          setDatas(newDatas)
-        })
-        .catch(function (err) {
-          console.log(err, ' error')
-        })
-    })
+    getRSS(0, [], setDatas, listRSS)
   }, [])
   return (
     <Style.LatestList>
-      {datas.map((data, index) => {
+      {datas.list.map((data, index) => {
         return (
-          index < 3 && (
+          index < 15 && (
             <li key={index}>
               <div>
                 <TextMedium>{data.title}</TextMedium>
