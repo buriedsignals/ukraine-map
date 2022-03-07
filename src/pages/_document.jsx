@@ -59,7 +59,10 @@ export default class MyDocument extends Document {
           {/* Search Engine Optimization Meta Tags */}
           <title>{title}</title>
           <meta name='description' content={description} />
-          <meta name='keywords' content='Buried Signals' />
+          <meta
+            name='keywords'
+            content='Buried Signals, Ukraine, war, invasion, Russia, conflict, monitoring, map'
+          />
           <meta name='robots' content='index,follow' />
           <meta name='distribution' content='web' />
           {/* 
@@ -68,7 +71,7 @@ export default class MyDocument extends Document {
           <meta name='og:title' content={title} />
           <meta name='og:type' content='site' />
           <meta name='og:url' content={url} />
-          <meta name='og:image' content={'/icons/share.png'} />
+          <meta name='og:image' content={'/img/img-meta.png'} />
           <meta name='og:site_name' content={title} />
           <meta name='og:description' content={description} />
 
@@ -110,8 +113,12 @@ export default class MyDocument extends Document {
       Twitter Summary card
         documentation: https://dev.twitter.com/cards/getting-started
         Be sure validate your Twitter card markup on the documentation site. */}
-          <meta name='twitter:card' content='summary' />
+          <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:site' content='@buriedsignals' />
+          <meta name='twitter:title' content={title} />
+          <meta name='twitter:description' content={description} />
+          <meta name='twitter:creator' content='@buriedsignals' />
+          <meta name='twitter:image:src' content={'/img/img-meta.png'} />
         </Head>
         <body {...this.helmetBodyAttrComponents}>
           <Main />
